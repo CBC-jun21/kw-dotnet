@@ -81,8 +81,8 @@ namespace VulnerableApp.Controllers
             return password == "password123"; 
         }
 
-        [HttpGet("xss")]
-        public ContentResult XssVuln(string input)
+        [HttpGet("get-content")]
+        public ContentResult GetContent(string input)
         {
             return Content("<html><body>" + input + "</body></html>", "text/html"); 
         }
