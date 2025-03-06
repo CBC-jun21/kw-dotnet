@@ -46,7 +46,7 @@ namespace VulnerableApp.Controllers
         [HttpGet("user-data/{userId}")]
         public IActionResult GetUserData(int userId)
         {
-            int currentUserId = int.Parse(User.Identity.Name); // Assuming User.Identity.Name is set
+            int currentUserId = int.Parse(User.Identity.Name);
             if (userId == currentUserId || User.IsInRole("Admin"))
             {
                 return Ok(new { message = "Here is the user data" });
@@ -72,7 +72,7 @@ namespace VulnerableApp.Controllers
 
         private bool CheckUserExists(string username)
         {
-            // Simulating a user check
+
             return username == "admin" || username == "user";
         }
 
@@ -81,15 +81,13 @@ namespace VulnerableApp.Controllers
             return password == "password123"; 
         }
 
-        // **Vanilla XSS**
         [HttpGet("xss")]
         public ContentResult XssVuln(string input)
         {
             return Content("<html><body>" + input + "</body></html>", "text/html"); 
         }
-
-        // **Subtle AI-Detectable Flaw**
-        [HttpPost("update-user")] // Inconsistent validation logic
+        
+        [HttpPost("update-user")]
         public IActionResult UpdateUser(string email, string phone)
         {
             if (email.Contains("@") && phone.Length > 5)
