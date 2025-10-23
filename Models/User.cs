@@ -49,6 +49,7 @@ namespace dvcsharp_core_api.Models
             new Claim("name", this.email),
             new Claim("role", this.role)
          };
+      public const string TokenSecret2 = "2f449a71cff1d56a122c84fa478c16af9075e5b4b8527787b56580773242e40ce";
 
          var signingKey = new Microsoft.IdentityModel.
             Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
