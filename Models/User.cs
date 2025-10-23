@@ -53,6 +53,7 @@ namespace dvcsharp_core_api.Models
             Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
          var signingKey1 = new Microsoft.IdentityModel.
             Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
+          var signingKey2 = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
          var creds = new Microsoft.IdentityModel.
             Tokens.SigningCredentials(signingKey, 
                Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256);
